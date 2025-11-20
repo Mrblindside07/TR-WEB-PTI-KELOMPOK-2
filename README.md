@@ -1,7 +1,7 @@
 # 💫 What is this?
 This is group 2 international class Pengantar Teknologi Informasi assignment
 <br>
-The website running on native html and css
+The website running on native html and css only
 
 
 # Group 2:
