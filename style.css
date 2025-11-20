@@ -1,0 +1,669 @@
+/* ========== GLOBAL RESET ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ========== NAVBAR ========== */
+.logo-img {
+  height: 30px;
+  width: auto;
+  padding-top: 5px;
+}
+
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 20px 0;
+  position: relative;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.nav-left .logo {
+  font-size: 28px;
+  font-weight: 900;
+  text-decoration: none;
+  color: #000;
+  font-family: On, Noto Sans JP, Noto Sans KR, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+}
+
+/* Center Navigation */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e9e9e9;
+  border-radius: 40px;
+  padding: 6px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-center ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.nav-center a.active {
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-center a:hover {
+  background: #fdfdfd;
+  transform: scale(1.3);
+  transition: ease-in-out 0.3s;
+}
+
+/* Right Icons */
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right .nav-icon {
+  color: #000;
+  text-decoration: none;
+  margin-left: 24px;
+}
+
+.nav-right .nav-icon:hover {
+  color: #555;
+}
+
+.nav-right .nav-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Hamburger Toggle */
+.nav-toggle-checkbox {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-right: 15px;
+  z-index: 110;
+}
+
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #000;
+  border-radius: 3px;
+  margin: 5px 0;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+#nav-toggle:checked ~ .nav-right .nav-toggle-label .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#nav-toggle:checked ~ .nav-right .nav-toggle-label .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+#nav-toggle:checked ~ .nav-right .nav-toggle-label .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ========== BUTTONS ========== */
+.btn {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+.btn-light {
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+}
+
+.btn-light:active {
+  background-color: #fffb00;
+  transform: scale(0.95);
+}
+
+/* ========== HERO SECTION ========== */
+.hero-section {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  min-height: 600px;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(60%);
+}
+
+.hero-content {
+  position: relative;
+  padding: 20px;
+  max-width: 1000px;
+}
+
+.hero-content h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-content h1 {
+  font-family: On, Noto Sans JP, Noto Sans KR, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+.hero-content h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+/* ========== PRODUCT GRID ========== */
+.product-grid-wrapper {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+}
+
+.section-title {
+  font-family: On, Noto Sans JP, Noto Sans KR, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 40px 0 30px;
+  color: #000;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-card--wide {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.071);
+}
+
+.product-card--wide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+  z-index: 1;
+  transition: transform 0.4s ease-in-out;
+}
+
+.product-card--wide:hover img {
+  transform: scale(1.1);
+}
+
+.product-card-content {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  z-index: 2;
+  color: #fff;
+}
+
+.product-card-content h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* ========== BRAND BAR ========== */
+.brand-bar-wrapper {
+  padding: 60px 0;
+  background-color: #fff;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.brand-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+}
+
+.brand-bar-title {
+  font-family: On, Noto Sans JP, Noto Sans KR, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #000;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.brand-bar-logos {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.brand-logo {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.brand-logo img {
+  max-height: 60px;
+  max-width: 130px;
+  object-fit: contain;
+  opacity: 0.4;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.brand-logo::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #000;
+  transition: width 0.3s ease-out;
+}
+
+.brand-logo:hover::after {
+  width: 100%;
+}
+
+.brand-logo:hover img {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+.brand-logo.logo-prominent img {
+  opacity: 1;
+  filter: grayscale(0%);
+  max-height: 65px;
+}
+
+.brand-logo.logo-prominent::after {
+  width: 100%;
+  background-color: #000;
+}
+
+/* ========== LOGIN PAGE ========== */
+.back a {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.back a:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+/* Container */
+.login-container {
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.login-logo {
+  display: block;
+  margin: 0 auto 20px;
+  height: 80px;
+  width: auto;
+}
+
+/* Heading */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000;
+}
+
+/* Input Groups */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:invalid {
+  border-color: #e74c3c;
+}
+
+.form-group input:valid {
+  border-color: #27ae60;
+}
+
+/* Login Button */
+.login-btn {
+  display: block;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.login-btn:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+/* Disabled login button when form invalid */
+#login-form:invalid ~ .login-btn-container .login-btn {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+#login-form:invalid ~ .login-btn-container .login-btn:hover {
+  background-color: #ccc;
+  transform: none;
+  box-shadow: none;
+}
+
+.login-btn-container {
+  margin-top: 10px;
+}
+
+/* Required field marker */
+.form-group input:required + label::after {
+  content: " *";
+  color: #e74c3c;
+}
+
+
+/* ========== FOOTER ========== */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #000000;
+  margin-top: auto;
+}
+
+footer h2 {
+  color: #fff;
+  font-family: On, Noto Sans JP, Noto Sans KR, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 30px;
+  text-decoration: none;
+}
+
+.contact-item {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 150px;
+}
+
+.contact-icon {
+  height: 40px;
+  width: 40px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  object-fit: contain;
+}
+
+.contact-item a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  transform: scale(1.1);
+}
+
+footer p {
+  margin-top: 20px;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .navbar .container {
+    margin: 0 15px;
+  }
+
+  .nav-toggle-label {
+    display: block;
+  }
+
+  .nav-center {
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border-radius: 0;
+    padding: 20px 0;
+    transform: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-out;
+  }
+
+  #nav-toggle:checked ~ .nav-center {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-center ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .nav-center a {
+    font-size: 16px;
+    padding: 10px 20px;
+    color: #333;
+  }
+
+  .nav-center a:hover,
+  .nav-center a.active {
+    background: #f4f4f4;
+    transform: none;
+  }
+
+  .hero-section {
+    min-height: 450px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+  }
+
+  .brand-bar-wrapper {
+    padding: 40px 0;
+  }
+
+  .brand-bar-title {
+    font-size: 1.5rem;
+  }
+
+  .brand-bar-logos {
+    gap: 25px;
+  }
+
+  .brand-logo img {
+    max-height: 45px;
+  }
+
+  footer h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact {
+    gap: 25px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-item {
+    min-width: 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .product-card-content h3 {
+    font-size: 1.5rem;
+  }
+}
